@@ -1,6 +1,16 @@
+body {
+    font-size: 12px;
+    font-family: Proxima-Nova-Regular, Arial, Sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 .for-who-cannot-afford-baidu-music-vip {
     position: absolute;
     left: -16px;
+}
+
+.rate {
+    padding: 2px;
 }
 
 .generate-download-buttons {
