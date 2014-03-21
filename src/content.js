@@ -88,7 +88,7 @@ $(function() {
   // });
 
   // Click the "Generate download buttons" in popup page to generate download buttons.
-  chrome.extension.onRequest.addListener(function(request, sender, response) {
+  chrome.extension.onMessage.addListener(function(request, sender, response) {
     if(request.msg == "generateDownloadButtons") {
       response("start to generate download buttons.");
       generateDownloadButtons();
