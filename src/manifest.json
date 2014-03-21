@@ -1,0 +1,28 @@
+{
+  "name": "Baidu Music Vip Download",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "description": "Download high quality musics (320k) from Baidu Music.",
+  "background": {
+    "persistent": false,
+    "scripts": ["bg.js"]
+  },
+  "page_action": {
+    "default_title": "Download high quality music from Baidu Music that only Vip users can",
+    "default_icon": {
+      "19": "images/icon_19.png",
+      "38": "images/icon_38.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "http://music.baidu.com/*", "http://ting.baidu.com/*", "http://zhangmenshiting.baidu.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://music.baidu.com/*"],
+      "css": ["style.css"],
+      "js": ["jquery-2.1.0.min.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": ["images/download_16.png"],
+  "all_frames": true
+}
