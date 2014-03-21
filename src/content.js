@@ -5,11 +5,14 @@ $(function() {
 
     function generateDownloadButtons(rate) {
         songElements = $("a[href^='/song/']").filter(function(){
-            return this.href.match(/\/song\/\d+$/);
+            //  @Eric this function is changed to catch some cases
+            //  that some music has no 320 rates
+            //  any suggestion?
+            return $(this).attr('sid').match(/\d+/);
         });
 
         songElements.each(function( index ){
-            songId = $(this).prop("href").match(/\d+/)[0];
+            songId = $(this).attr('sid').match(/\d+/)[0];
             url = urlToGetRealLink + "?songIds=" + songId + "&rate=" + rate;
             $.ajax({
                 context: this,
