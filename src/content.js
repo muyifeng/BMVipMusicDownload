@@ -53,7 +53,7 @@ $(function() {
         type: "GET",
         dataType: "json"
       }).done(function( data ){
-        // console.log("response data: ", data);
+        console.log("response data: ", data);
         if (data.data != null && data.data != "" && data.data.songList != null && $(this).parent().find(".for-who-cannot-afford-baidu-music-vip").length == 0) {
           realSongLink = data.data.songList[0].songLink;
           songName = data.data.songList[0].songName;
@@ -88,7 +88,7 @@ $(function() {
   // });
 
   // Click the "Generate download buttons" in popup page to generate download buttons.
-  chrome.extension.onRequest.addListener(function(request, sender, response) {
+  chrome.extension.onMessage.addListener(function(request, sender, response) {
     if(request.msg == "generateDownloadButtons") {
       response("start to generate download buttons.");
       generateDownloadButtons();
