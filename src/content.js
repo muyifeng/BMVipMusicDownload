@@ -53,7 +53,7 @@ $(function() {
         type: "GET",
         dataType: "json"
       }).done(function( data ){
-        console.log("response data: ", data);
+        // console.log("response data: ", data);
         if (data.data != null && data.data != "" && data.data.songList != null && $(this).parent().find(".for-who-cannot-afford-baidu-music-vip").length == 0) {
           realSongLink = data.data.songList[0].songLink;
           songName = data.data.songList[0].songName;
