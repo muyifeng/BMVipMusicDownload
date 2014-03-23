@@ -1,5 +1,5 @@
 $(function() {
-    validRate = ['128', '256', '320'];
+    validRate = ['128', '256', '320', 'flac'];
     urlToGetRealLink = "http://ting.baidu.com/data/music/links";
     downloadIconUrl = chrome.extension.getURL("images/download_16.png");
 
@@ -10,7 +10,9 @@ $(function() {
 
         songElements.each(function( index ){
             songId = $(this).prop('href').match(/\d+/)[0];
-            url = urlToGetRealLink + "?songIds=" + songId + "&rate=" + rate;
+             
+            url = rate == 'flac' ? urlToGetRealLink + "?songIds=" + songId + "&type=" + rate :
+                                   urlToGetRealLink + "?songIds=" + songId + "&rate=" + rate;
             $.ajax({
                 context: this,
                 url: url,
