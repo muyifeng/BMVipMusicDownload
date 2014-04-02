@@ -19,10 +19,12 @@ $(function() {
                 type: "GET",
                 dataType: "json"
             }).done(function( data ) {
-                if (data.data && data.data.songList && $(this).parent().find(".for-who-cannot-afford-baidu-music-vip").length == 0) {
+                if (data.data && data.data.songList.length && $(this).parent().find(".for-who-cannot-afford-baidu-music-vip").length == 0) {
                     realSongLink = data.data.songList[0].songLink;
                     songName = data.data.songList[0].songName;
                     songFormat = data.data.songList[0].format;
+                    if(!realSongLink)
+                        return;
 
                     downloadIcon = $("<img>").prop({src: downloadIconUrl, width: 12, height: 12});
                     newAddedDownloadLink = $("<a>").prop({target: "_blank", href: realSongLink, download: songName + "." + songFormat, "class": "for-who-cannot-afford-baidu-music-vip"});
